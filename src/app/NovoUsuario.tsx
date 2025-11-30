@@ -21,16 +21,18 @@ export default function NovoUsuario() {
                 <MarcadosTitulo />
             </TelaContainer> */}
 
-            <Animatable.View
-                animation={'fadeIn'} duration={1500} delay={500}
-            >
-                <View style={styles.containerImage}>
-                    <Image
-                        source={require("@/assets/logo.jpg")}
-                        style={{ width: '100%', height: '100%' }}
-                    />
-                </View>
-            </Animatable.View>
+            <TelaContainer>
+                <Animatable.View
+                    animation={'fadeIn'} duration={1500} delay={500}
+                >
+                    <View style={styles.containerImage}>
+                        <Image
+                            source={require("@/assets/logo.jpg")}
+                            style={{ width: '100%', height: '100%' }}
+                        />
+                    </View>
+                </Animatable.View>
+            </TelaContainer>
 
             <TelaContainer>
                 <InputComponent
@@ -54,37 +56,37 @@ export default function NovoUsuario() {
                     corBorda={Cores.vermelho}
                 />
 
-                <InputComponent
-                    senha={true}
-                    placeholder="Confirme sua senha"
-                    onChangeText={setConfirmarSenha}
-                    corBorda={Cores.vermelho}
-                />
-
-                <BtnComponent
+                {/* <BtnComponent
                     titulo="Cadastrar"
                     onPress={() => router.back()}
                     corBorda={Cores.vermelho}
                     corTxt={Cores.vermelho}
-                />
+                /> */}
             </TelaContainer>
 
-            {/* <TelaContainer>
+            <TelaContainer>
                 <BtnComponent
                     titulo="Cadastrar"
                     onPress={() => router.back()}
                     corBorda={Cores.vermelho}
                     corTxt={Cores.vermelho}
                 />
-            </TelaContainer> */}
+
+                <TouchableOpacity onPress={() => router.back()}>
+                    <Text style={{ color: Cores.vermelho }}>
+                        Já possui conta? Faça Login.
+                    </Text>
+                </TouchableOpacity>
+            </TelaContainer>
         </Tela >
     )
 }
 
 const styles = StyleSheet.create({
     containerImage: {
-        width: 250,
-        height: 250,
+        width: 220,
+        height: 220,
+        marginTop: 20,
         borderWidth: 4,
         borderColor: Cores.vermelho,
         borderRadius: '50%',
