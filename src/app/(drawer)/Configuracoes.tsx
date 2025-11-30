@@ -8,12 +8,13 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import { ModalPerfil } from "@/src/components/Modals/ModalPerfil";
 import { BtnComponent } from "@/src/components/Buttons";
 import { router } from "expo-router";
+import { Cores } from "@/src/styles/Cores";
 
 interface ConfiguracoesProps {
     image?: string
 }
 
-// import perfil from 'images/perfil.jpg';
+// import perfil from '@assets/perfil.png';
 
 export default function Configuracoes({ image }: ConfiguracoesProps) {
 
@@ -28,7 +29,7 @@ export default function Configuracoes({ image }: ConfiguracoesProps) {
     }
 
     return (
-        <Tela>
+        <Tela background={Cores.branco}>
             <TelaContainer>
 
                 <View>
@@ -60,41 +61,28 @@ export default function Configuracoes({ image }: ConfiguracoesProps) {
                     </TouchableOpacity>
                 </View>
 
-                {/* <Modal
-                    visible={modalStatus}
-                    onRequestClose={fecharModal}
-                    animationType="slide"
-                    style={{ width: '100%', height: 400 }}
-                    transparent={true}
-                >
-                    <View style={{ flex: 1, borderWidth: 1, alignItems: 'center', justifyContent: 'center' }}>
-                        <View style={{ width: '90%', height: 500, borderRadius: 10, backgroundColor: '#dadada', alignItems: 'center', justifyContent: 'center' }}>
-                            <Text style={{ fontSize: 50, fontWeight: 'bold', textAlign: 'center' }}>Modal Aberto</Text>
-
-                            <BtnIcone onPress={fecharModal} style={{ position: 'absolute', top: 8, right: 16 }}>
-                                <AntDesign
-                                    name="close-circle"
-                                    size={35}
-                                    color="black"
-                                />
-                            </BtnIcone>
-                        </View>
-                    </View>
-                </Modal> */}
-
-                <ModalPerfil status={modalStatus} close={fecharModal} />
+                <ModalPerfil 
+                    status={modalStatus} 
+                    close={fecharModal} 
+                    source={require('@/assets/perfil.jpg')}
+                />
 
 
-                <BtnOption titulo="Alterar Imagem do perfil" />
+                <BtnOption corTxt={Cores.vermelho} titulo="Alterar Imagem do perfil" />
 
-                <BtnOption titulo="Alterar senha" />
+                <BtnOption corTxt={Cores.vermelho}  titulo="Alterar senha" />
 
-                <BtnOption titulo="Alterar cor tema" />
+                <BtnOption corTxt={Cores.vermelho}  titulo="Alterar cor tema" />
 
-                <BtnOption titulo="Excluir conta" />
+                <BtnOption corTxt={Cores.vermelho} titulo="Excluir conta" />
 
-                <View style={{ width: '100%', marginVertical: 150}}>
-                    <BtnComponent titulo="Sair" onPress={() => router.replace('/')} />
+                <View style={{ width: '90%', marginTop: 20}}>
+                    <BtnComponent 
+                        titulo="Sair" 
+                        semBorda
+                        background={Cores.vermelho}
+                        corTxt={Cores.branco}
+                        onPress={() => router.replace('/')} />
                 </View>
 
             </TelaContainer>
