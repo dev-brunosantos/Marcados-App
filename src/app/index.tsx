@@ -49,8 +49,8 @@ export default function App() {
 
 const styles = StyleSheet.create({
     containerImage: {
-        width: 300,
-        height: 300,
+        width: 250,
+        height: 250,
         borderWidth: 4,
         borderColor: vermelho,
         borderRadius: '50%',
