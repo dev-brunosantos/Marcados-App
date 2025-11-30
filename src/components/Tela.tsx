@@ -34,12 +34,12 @@ export const TelaContainer = ({ children } :{children: React.ReactNode }) => {
 const styles = StyleSheet.create({
     tela: {
         flex: 1,
-        paddingHorizontal: 20,
+        paddingHorizontal: 10,
         alignItems: 'center',
     },
     container: {
         width: '100%',
-        minHeight: 200,
+        minHeight: 150,
         height: 'auto',
         // borderWidth: 1,
         padding: 5,
