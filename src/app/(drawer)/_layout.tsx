@@ -27,7 +27,9 @@ export default function DrawerLayout() {
                     top: 16
                 },
                 drawerActiveTintColor: Cores.vermelho,
-                
+                drawerLabelStyle: {
+                    fontSize: 20
+                }
             }}
             drawerContent={(props) => (
                 <>
@@ -35,15 +37,15 @@ export default function DrawerLayout() {
                         nomeUsuario='Bruno Santos'
                         perfilUsuario=''
                     />
+                    <DrawerItemList {...props}  />
 
                     <View style={{ flex: 1, paddingHorizontal: 20 }} >
-                        <DrawerItemList {...props} />
 
                         {/* <View style={{ position: 'absolute', bottom: 100, width: '100%', padding: 0 }}></View> */}
-                        <View style={{ width: '100%', marginTop: 180, padding: 0 }}>
-                            <BtnComponent 
-                                titulo='Sair' 
-                                onPress={() => router.replace('/')} 
+                        <View style={{ width: '100%', marginTop: 70, padding: 0 }}>
+                            <BtnComponent
+                                titulo='Sair'
+                                onPress={() => router.replace('/')}
                                 semBorda={true}
                                 background={Cores.vermelho}
                                 corTxt={Cores.branco}
