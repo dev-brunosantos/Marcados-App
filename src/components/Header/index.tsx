@@ -1,4 +1,5 @@
 import { Cores } from "@/src/styles/Cores";
+import { router } from "expo-router";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 interface HeaderProps {
@@ -9,8 +10,19 @@ interface HeaderProps {
 export const Header = ({ nomeUsuario, perfilUsuario }: HeaderProps) => {
     return (
         <View style={styles.header}>
+            
+            <View style={{ paddingHorizontal: 5}}>
+                <Text style={styles.txtSaudacao}>
+                    Seja bem vindo
+                </Text>
+
+                <Text style={styles.txtNome}>
+                    {nomeUsuario}
+                </Text>
+            </View>
+
             <View>
-                <TouchableOpacity style={styles.btnPerfil}>
+                <TouchableOpacity onPress={() => router.push('/(drawer)/Configuracoes')} style={styles.btnPerfil}>
                     <Image
                         source={require('@/assets/perfil.jpg')}
                         alt=""
@@ -20,16 +32,6 @@ export const Header = ({ nomeUsuario, perfilUsuario }: HeaderProps) => {
                         }}
                     />
                 </TouchableOpacity>
-            </View>
-
-            <View>
-                <Text style={styles.txtSaudacao}>
-                    Seja bem vindo
-                </Text>
-
-                <Text style={styles.txtNome}>
-                    {nomeUsuario}
-                </Text>
             </View>
         </View>
     )
@@ -43,7 +45,7 @@ const styles = StyleSheet.create({
         // borderStyle: 'dashed',
         // marginTop: 20,
         marginBottom: 50,
-        paddingHorizontal: 20,
+        paddingHorizontal: 10,
         paddingTop: 50,
         paddingBottom: 30,
         flexDirection: 'row',
@@ -65,8 +67,8 @@ const styles = StyleSheet.create({
         color: Cores.branco
     },
     btnPerfil: {
-        width: 90,
-        height: 90,
+        width: 80,
+        height: 80,
         borderWidth: 0,
         borderRadius: '50%',
         marginRight: 10,
