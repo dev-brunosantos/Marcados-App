@@ -1,14 +1,15 @@
-import { Modal, StyleSheet, Text, View } from "react-native"
+import { Image, ImageProps, Modal, StyleSheet, Text, View, ImageBackground, ImageBackgroundProps } from "react-native"
 import { BtnIcone } from "../Buttons/BtnIcon"
 import { AntDesign } from "@expo/vector-icons"
+import { Cores } from "@/src/styles/Cores";
 
-interface ModalPerfilProps {
+interface ModalPerfilProps extends ImageBackgroundProps {
     status: boolean;
-    opnen?: () => void;
+    imagem?: string;
     close: () => void;
 }
 
-export const ModalPerfil = ({ status, opnen, close }: ModalPerfilProps) => {
+export const ModalPerfil = ({ status, imagem, close, ...rest }: ModalPerfilProps) => {
     return (
         <Modal
             visible={status}
@@ -18,8 +19,13 @@ export const ModalPerfil = ({ status, opnen, close }: ModalPerfilProps) => {
             transparent={true}
         >
             <View style={styles.container}>
-                <View style={styles.content}>
-                    <Text style={styles.txt}>Modal Aberto</Text>
+                {/* <View style={styles.content}>
+                    <Image 
+                        {...rest}
+                        style={{
+                            width: 300, height: 400
+                        }}
+                    />
 
                     <BtnIcone onPress={close} style={styles.btnClose}>
                         <AntDesign
@@ -28,7 +34,23 @@ export const ModalPerfil = ({ status, opnen, close }: ModalPerfilProps) => {
                             color="black"
                         />
                     </BtnIcone>
-                </View>
+                </View> */}
+
+                <ImageBackground
+                    {...rest}
+                    style={{
+                        minWidth: 350, minHeight: 450,
+                        maxHeight: 1000,
+                    }}
+                >
+                    <BtnIcone onPress={close} style={styles.btnClose}>
+                        <AntDesign
+                            name="close-circle"
+                            size={40}
+                            color={Cores.branco}
+                        />
+                    </BtnIcone>
+                </ImageBackground>
             </View>
         </Modal>
     )
@@ -36,7 +58,7 @@ export const ModalPerfil = ({ status, opnen, close }: ModalPerfilProps) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1, alignItems: 'center', paddingVertical: 100
+        flex: 1, alignItems: 'center', paddingVertical: 65
     },
     content: {
         width: '90%',
